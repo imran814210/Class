@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Stop Watch</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="">
+    </head>
+    <body class="flex justify-center items-center">
+        <div class="flex justify-center items-center flex-col w-[500px] h-[500px] bg-indigo-300 rounded-full">            
+            <div class="text-6xl font-bold text-white font-mono mb-3 bg-black p-8 rounded-xl">
+                <span id="hr">00</span>:<span id="m">00</span>:<span id="s">00</span>
+            </div>
+            <div>
+                <button class="bg-black text-white p-2 m-1 font-bold rounded-lg" onclick="strtbtn()">Start</button>
+                <button class="bg-black text-white p-2 m-1 font-bold rounded-lg" onclick="stopbtn()">Pouse</button>
+                <button class="bg-black text-white p-2 m-1 font-bold rounded-lg" onclick="resettbtn()">Reset</button>
+            </div>
+        </div>
+        <script>
+        let h=0,m=0,s=0,timer;
+            function strtbtn(){
+                timer=true;
+                if(timer)
+                    x=setTimeout(increment,1000);
+            }
+            function increment(){
+                s=s+1;
+                print(s);
+                if(timer)
+                    strtbtn();
+            }
+            function stopbtn(){
+                timer=false;
+            }
+            function resettbtn(){
+                s=0;
+                m=0;
+                h=0;
+                 timer=false;
+                print(s)               
+                printm(m)               
+                printh(h)               
+            }
+            function print(x){
+                if(x==10)
+                    {
+                        m=m+1;
+                        if(m==10)
+                        {
+                            h=h+1;
+                            if(h==2)
+                                {
+                                    h=1;
+                                }
+                            printh(h);
+                            m=0;
+                            
+                        }
+                        printm(m);
+                        x=0;                         
+                        s=0;                         
+                        
+                    }
+                if(x<10)
+                    x="0"+x;                
+                 document.getElementById("s").innerHTML=x;   
+            }
+            function printm(x){  
+                if(x<10)
+                    x="0"+x;                   
+                 document.getElementById("m").innerHTML=x; 
+            }
+            function printh(x){                 
+                if(x<10)
+                    x="0"+x;                
+                 document.getElementById("hr").innerHTML=x;
+            }
+        </script>
+    </body>
+</html>
