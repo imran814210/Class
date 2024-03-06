@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+       
+    </head>
+    <body id="main">
+        <p>Imran</p>
+        <p>Imran</p>
+        <p>Imran</p>
+        <p id="ch1"></p>
+        <button onclick="changemode(this)">Dark</button>
+        <button onclick="other()">NewInputField</button>
+        <select onchange="addItem(this)">
+        <option selected>CSE</option>
+        <option>EEE</option>
+        <option>ME</option>
+        <option>Other</option>
+        </select>
+        <script>
+        function changemode(text){
+            var x=document.getElementById("main");
+            t=document.getElementsByTagName('p');
+            if(text.innerHTML==="Dark"){
+                    text.innerHTML="Light";
+                    text.style.color="black";
+                    x.style.background="black";
+                    for(i=0;i<t.length;i++)
+                        t[i].style.color="white";
+                    
+            }
+            else{
+                text.innerHTML="Dark";
+                    text.style.color="black";
+                    x.style.color="white";
+                    x.style.background="white";
+                     for(i=0;i<t.length;i++)
+                        t[i].style.color="black";
+             }
+        }
+        function other(){
+            var container=document.getElementById("ch1");
+            var input = document.createElement("input");
+                input.type = "text";
+                input.className = "input_name"; // set the CSS class
+                container.appendChild(input);
+        }
+        function addItem(x){
+            if(x.value==="Other"){
+                 var input = document.createElement("input");
+                        input.type = "text";
+                        input.className = "degree"; // set the CSS class
+                        x.insertAdjacentElement("afterend", input)
+                  }
+
+            }
+                    
+        </script>
+    </body>
+</html>
